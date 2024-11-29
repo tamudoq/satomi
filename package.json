@@ -1,0 +1,46 @@
+{
+    "name": "@servicenow/now-exeperience-sample-components",
+    "version": "0.0.1",
+    "private": false,
+    "description": "Custom elements to show sample Customer360 , To-Do List & Agent Assist",
+    "keywords": [
+        "ServiceNow",
+        "Now Experience UI Component",
+        "@servicenow/now-exeperience-sample-components"
+    ],
+    "readme": "./README.md",
+    "engines": {
+        "node": ">=8.6.0",
+        "npm": ">=5.3.0"
+    },
+    "module": "src/index.js",
+    "scripts": {
+        "start:agentAssistExample": "now-cli develop --open --entry=./agentAssist.js",
+        "start:counterExample": "now-cli develop --open --entry=./counter.js",
+        "start:checklistExample": "now-cli develop --open --entry=./checklist.js",
+        "start:customer360Example": "now-cli develop --open --entry=./customer360.js",
+        "start:flashCardExample": "now-cli develop --open --entry=./flashCard.js",
+        "start:taskBoardExample": "now-cli develop --open --entry=./taskBoard.js"
+    },
+    "dependencies": {
+        "@servicenow/behavior-rtl": "orlando",
+        "@servicenow/now-avatar": "orlando",
+        "@servicenow/now-heading": "orlando",
+        "@servicenow/now-icon": "orlando",
+        "@servicenow/now-label-value": "orlando",
+        "@servicenow/sass-kit": "orlando",
+        "@servicenow/sass-theme": "orlando",
+        "@servicenow/now-loader": "orlando",
+        "@servicenow/now-button": "orlando",
+        "@servicenow/now-toggle": "orlando",
+        "@servicenow/ui-core": "orlando",
+        "@servicenow/ui-effect-http": "orlando",
+        "@servicenow/ui-renderer-snabbdom": "orlando",
+        "@servicenow/cli-archetype": "orlando",
+        "@servicenow/cli-component-archetype": "orlando"
+    },
+    "devDependencies": {
+        "@servicenow/cli-archetype-dev": "orlando",
+        "@servicenow/cli-component-archetype-dev": "orlando"
+    }
+}
