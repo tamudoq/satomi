@@ -1,0 +1,224 @@
+{
+  "components": {
+    "snc-stock-tracker": {
+      "actions": [
+        {
+          "name": "SEND_MESSAGE",
+          "description": "Will send message in current language",
+          "label": "Send message",
+          "payload": [
+          {
+            "name": "value",
+            "label": "Value",
+            "description": "Description",
+            "defaultValue": false
+          }]
+        },
+        {
+          "name": "SEND_MESSAGE#BROAD_CAST",
+          "label": "Send messages to many",
+          "description": "Will send message in current language",
+          "payload": [
+          {
+            "name": "value",
+            "label": "Value",
+            "description": "Description",
+            "defaultValue": false
+          }]
+        }
+      ],
+      "innerComponents": [
+        "myco-bar",
+        "myco-baz"
+      ],  
+      "uiBuilder": {
+        "associatedTypes": ["global.core", "global.landing-page"],
+        "label": "My Stock Tracker",
+        "icon": "chat-fill",
+        "description": "Stock Tracking component",
+        "category": "stocks",
+        "tileIcon": "./tile-icon/generic-tile-icon.svg",
+        "searchFacets": ["global.stocks:global.tracking"]
+      },  
+      "properties": [
+        {
+          "name": "backgroundColor",
+          "label": "Background Color", 
+          "readOnly": false,       
+          "required": false,
+          "defaultValue": "purple",
+          "fieldType": "string",
+          "description": "Description"
+        },
+        {
+          "name": "table",
+          "label": "table",
+          "fieldType": "json",
+          "required": true,
+          "typeMetadata": {
+            "schema": {
+              "type": "array",
+              "items": [
+                {
+                  "name": "name"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "from",
+          "label": "from",
+          "fieldType": "object",
+          "required": true,
+          "typeMetadata": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "country": {
+                  "type": "string"
+                },
+                "timezone": {
+                  "type": "string"
+                },
+                "id": {
+                  "nowUIType": "CustomType"
+                }
+              }
+          }
+          }
+        },
+        {
+          "name": "search",
+          "label": "Search type",
+          "defaultValue": "list",
+          "fieldType": "choice",
+          "readOnly": false,
+          "required": true,
+          "selectable": false,
+          "typeMetadata": {
+            "choices": [
+              {
+                "label": "None",
+                "value": "none"
+              },
+              {
+                "label": "Contains",
+                "value": "contains"
+              }
+            ],
+            "schema": {
+              "type": "string",
+              "enum": ["none", "contains"]
+            }
+          }
+        },
+        {
+          "name": "to",
+          "label": "To",
+          "defaultValue": "{}",
+          "typeMetadata": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "start": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                "end": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                "type": {
+                  "type": "string"
+                },
+                "hasConflict": {
+                  "type": "boolean"
+                },
+                "tooltip": {
+                  "type": "string"
+                }
+              }
+            }
+        }
+        }
+      ],
+      "requiredSysProps": [
+        "abc.foo",
+        "abc.bar"
+      ],
+      "requiredTranslationKeys": [
+        "T_FOO",
+        "T_BAR"
+      ],
+      "slots": [
+        "slot-foo",
+        "slot-bar"
+      ]
+    },
+    "snc-stock-seller": {
+      "uiBuilder": {
+        "associatedTypes": ["global.core", "global.landing-page"],
+        "label": "My Stock Seller",
+        "icon": "chat-fill",
+        "description": "Stock selling component",
+        "category": "stocks",
+        "searchFacets": ["global.stocks:global.selling"]
+      },
+      "actions": [
+        {
+          "name": "SEND_MESSAGE",
+          "description": "Will send message in current language",
+          "label": "Send message",
+          "payload": [
+          {
+            "name": "value",
+              "label": "Value",
+              "description": "Description",
+              "defaultValue": false
+          }]
+        }
+      ],
+      "properties": [
+        {
+          "name": "search",
+          "label": "Search type",
+          "defaultValue": "list",
+          "fieldType": "choice",
+          "readOnly": false,
+          "required": true,
+          "selectable": false,
+          "typeMetadata": {
+            "choices": [
+              {
+                "label": "None",
+                "value": "none"
+              },
+              {
+                "label": "Contains",
+                "value": "contains"
+              }
+            ],
+            "schema": {
+              "type": "string",
+              "enum": ["none", "contains"]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "scopeName": "x_snc_stock_track"
+}
